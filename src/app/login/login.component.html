@@ -1,0 +1,28 @@
+<form style="padding: 10% 25% 10% 25%">
+  <div class="form-group">
+    <h1 style=text-align:center>Angular Rest Api Project</h1>
+
+  </div>
+
+  <div class="form-group">
+    <label for="login">Usuário :</label>
+    <input type="text" name="login" id="login" class="form-control" #user="ngModel" [(ngModel)]= "usuario.login"  required>
+      <div *ngIf="user.invalid" class="alert alert-danger">
+        Login deve ser informado
+      </div>
+  </div>
+
+  <div class="form-group">
+    <label for="senha">Senha :</label>
+    <input type="password" name="senha" id="senha" class="form-control" #senha="ngModel" [(ngModel)]="usuario.senha" aria-describedby="helpId" required>
+      <div *ngIf="senha.invalid" class="alert alert-danger">
+        Senha deve ser informada
+      </div>
+  </div>
+
+  <button type="button" class="btn btn-primary" [disabled]="user.invalid // senha.invalid" (click)="login()">Acessar</button>
+
+
+
+
+</form>

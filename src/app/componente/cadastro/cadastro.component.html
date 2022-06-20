@@ -1,0 +1,57 @@
+<div *ngIf="vazio;else editarUsuario">
+  <h3 style="padding: 2% 2% 0% 2%">Novo Usuário</h3>
+</div>
+<ng-template #editarUsuario>
+  <h3 style="padding: 2% 2% 0% 2%">Editar Usuário</h3>
+</ng-template>
+
+<form style="padding: 0% 2% 0% 2%" class="form-row">
+  <div class="row">
+    <div class="col">
+      <label for="id" class="form-label">Id:</label>
+      <input type="number" class="form-control" name="id" id="id" [(ngModel)]="usuario.id" placeholder=""
+        readonly="true">
+    </div>
+    <div class="col">
+      <label for="Login" class="form-label">Login:</label>
+      <input type="text" class="form-control" name="login" id="login" [(ngModel)]="usuario.login" placeholder="">
+    </div>
+    <div class="col">
+      <label for="Senha" class="form-label">Senha:</label>
+      <input type="password" class="form-control" name="senha" id="senha" [(ngModel)]="usuario.senha" placeholder="">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <label for="Nome" class="form-label">Nome:</label>
+      <input type="text" class="form-control" name="nome" id="nome" [(ngModel)]="usuario.nome" placeholder="">
+    </div>
+    <div class="col">
+      <label for="Sobrenome" class="form-label">Sobrenome:</label>
+      <input type="text" class="form-control" name="sobrenome" id="sobrenome" [(ngModel)]="usuario.sobrenome"
+        placeholder="">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <label for="cpf" class="form-label">CPF:</label>
+      <input type="text" class="form-control" name="cpf" id="cpf" [(ngModel)]="usuario.cpf" placeholder="">
+    </div>
+    <div class="col">
+      <label for="Idade" class="form-label">Idade:</label>
+      <input type="number" class="form-control" name="idade" id="idade" [(ngModel)]="usuario.idade" placeholder="">
+    </div>
+  </div>
+  <div class="col">
+    <label for="Email" class="form-label">E-mail:</label>
+    <input type="email" class="form-control" name="email" id="email" [(ngModel)]="usuario.email" placeholder="">
+  </div>
+
+  <div class="form-row">
+  <div class="form-group col-md-3">
+    <button type="button" class="btn btn-primary" (click)="cadastrarUsuario()">Enviar</button>
+    <button type="button" style="margin: 0 5px" class="btn btn-primary" (click)="novo()">Novo</button>
+  </div>
+
+</div>
+</form>
