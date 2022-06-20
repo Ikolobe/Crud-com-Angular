@@ -5,7 +5,7 @@
   <h3 style="padding: 2% 2% 0% 2%">Editar Usuário</h3>
 </ng-template>
 
-<form style="padding: 0% 2% 0% 2%" class="form-row">
+<form style="padding: 0% 2% 0% 2%" class="form-row" #formValidate="ngForm">
   <div class="row">
     <div class="col">
       <label for="id" class="form-label">Id:</label>
@@ -14,43 +14,51 @@
     </div>
     <div class="col">
       <label for="Login" class="form-label">Login:</label>
-      <input type="text" class="form-control" name="login" id="login" [(ngModel)]="usuario.login" placeholder="">
+      <span *ngIf="loginValidate.invalid" style="color: red; font-size: 15px;">*</span>
+      <input type="text" class="form-control" required="true" name="login" id="login" #loginValidate="ngModel" [(ngModel)]="usuario.login" placeholder="Insira o Login">
     </div>
     <div class="col">
       <label for="Senha" class="form-label">Senha:</label>
-      <input type="password" class="form-control" name="senha" id="senha" [(ngModel)]="usuario.senha" placeholder="">
+      <span *ngIf="senhaValidate.invalid" style="color: red; font-size: 15px;">*</span>
+      <input type="password" class="form-control" required="true" name="senha" id="senha" #senhaValidate="ngModel" [(ngModel)]="usuario.senha" placeholder="Insira a Senha">
     </div>
   </div>
   <div class="row">
     <div class="col">
       <label for="Nome" class="form-label">Nome:</label>
-      <input type="text" class="form-control" name="nome" id="nome" [(ngModel)]="usuario.nome" placeholder="">
+      <span *ngIf="nomeValidate.invalid" style="color: red; font-size: 15px;">*</span>
+      <input type="text" class="form-control" required="true" name="nome" id="nome" #nomeValidate="ngModel" [(ngModel)]="usuario.nome" placeholder="Insira o Nome">
     </div>
     <div class="col">
       <label for="Sobrenome" class="form-label">Sobrenome:</label>
-      <input type="text" class="form-control" name="sobrenome" id="sobrenome" [(ngModel)]="usuario.sobrenome"
-        placeholder="">
+      <span *ngIf="sobrenomeValidate.invalid" style="color: red; font-size: 15px;">*</span>
+      <input type="text" class="form-control" required="true" name="sobrenome" id="sobrenome" #sobrenomeValidate="ngModel" [(ngModel)]="usuario.sobrenome"
+      placeholder="Insira o Sobrenome">
     </div>
   </div>
   <div class="row">
     <div class="col">
       <label for="cpf" class="form-label">CPF:</label>
-      <input type="text" class="form-control" name="cpf" id="cpf" [(ngModel)]="usuario.cpf" placeholder="">
+      <span *ngIf="cpfValidate.invalid" style="color: red; font-size: 15px;">*</span>
+      <input type="text" class="form-control" required="true" name="cpf" id="cpf" #cpfValidate="ngModel" [(ngModel)]="usuario.cpf" placeholder="Insira o CPF">
     </div>
     <div class="col">
       <label for="Idade" class="form-label">Idade:</label>
-      <input type="number" class="form-control" name="idade" id="idade" [(ngModel)]="usuario.idade" placeholder="">
+      <span *ngIf="idadeValidate.invalid" style="color: red; font-size: 15px;">*</span>
+      <input type="number" class="form-control" required="true" name="idade" id="idade" #idadeValidate="ngModel" [(ngModel)]="usuario.idade" placeholder="Insira a Idade">
     </div>
   </div>
   <div class="col">
     <label for="Email" class="form-label">E-mail:</label>
-    <input type="email" class="form-control" name="email" id="email" [(ngModel)]="usuario.email" placeholder="">
+    <span *ngIf="emailValidate.invalid" style="color: red; font-size: 15px;">*</span>
+    <input type="email" class="form-control" required="true" name="email" id="email" #emailValidate="ngModel" [(ngModel)]="usuario.email" placeholder="Insira o Email">
   </div>
 
   <div class="form-row">
   <div class="form-group col-md-3">
-    <button type="button" class="btn btn-primary" (click)="cadastrarUsuario()">Enviar</button>
-    <button type="button" style="margin: 0 5px" class="btn btn-primary" (click)="novo()">Novo</button>
+    <button type="button" style="margin: 5px 5px" class="btn btn-outline-success" [routerLink]="['/usuarioList']" routerLinkActive="router-link-active">Voltar</button>
+    <button type="button" style="margin: 5px 5px" class="btn btn-outline-success" (click)="novo()">Novo</button>
+    <button type="button" style="margin: 5px 5px" class="btn btn-success" [disabled]="formValidate.invalid" (click)="cadastrarUsuario()">Salvar</button>
   </div>
 
 </div>
