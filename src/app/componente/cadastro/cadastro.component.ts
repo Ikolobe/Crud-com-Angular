@@ -12,6 +12,7 @@ export class CadastroComponent implements OnInit {
 
   public usuario : Usuario = new Usuario();
 
+  /*variavel criada para alterar a condição da tela de cadastro(Editar Usuario/Novo Usuario)*/
   vazio : boolean = false;
 
   constructor(private usuarioService: UsuarioService, private routeActive : ActivatedRoute) {
@@ -53,6 +54,7 @@ export class CadastroComponent implements OnInit {
 
   novo(){
     this.usuario = new Usuario();
+    this.vazio = true;
   }
 
 }

@@ -18,7 +18,8 @@ export class LoginServiceService {
 
       localStorage.setItem("token", token);
 
-      console.info("Token: "+ localStorage.getItem("token"));
+      // desabilite o comentario abaixo para saber o token
+     // console.info("Token: "+ localStorage.getItem("token"));
 
       this.router.navigate(['home']);
     },

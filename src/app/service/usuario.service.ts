@@ -38,4 +38,17 @@ export class UsuarioService {
    getUsuarioId(id): Observable<any>{
     return this.http.get<any>(AppConstants.baseUrl + id);
    }
+
+   /* Verifica se o Usuario está autenticado via token */
+   userAutenticado() {
+    if (localStorage.getItem('token') !== null &&
+    localStorage.getItem('token').toString().trim() !== null){
+      return true;
+    } else {
+      return false;
+    }
+
+   }
+
+
 }

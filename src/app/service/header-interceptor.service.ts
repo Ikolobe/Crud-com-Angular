@@ -1,4 +1,5 @@
 import {
+  HttpErrorResponse,
   HttpEvent,
   HttpHandler,
   HttpInterceptor,
@@ -7,6 +8,7 @@ import {
 } from '@angular/common/http';
 import { Injectable, NgModule } from '@angular/core';
 import { Observable } from 'rxjs';
+
 
 @Injectable()
 export class HeaderInterceptorService implements HttpInterceptor {
@@ -28,7 +30,11 @@ export class HeaderInterceptorService implements HttpInterceptor {
   }
 
   constructor() {}
+
+
+
 }
+
 
 @NgModule({
   providers: [

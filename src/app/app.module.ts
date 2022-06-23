@@ -11,15 +11,16 @@ import { LoginComponent } from './login/login.component';
 import { HttpInterceptorModule } from './service/header-interceptor.service';
 import { UsuarioComponent } from './componente/usuario/usuario.component';
 import { CadastroComponent } from './componente/cadastro/cadastro.component';
+import { GuardGuard } from './service/guard.guard';
 
 
 export const appRouters: Routes = [
-{ path: 'home', component: HomeComponent },
+{ path: 'home', component: HomeComponent, canActivate: [GuardGuard] },
 { path: 'login', component: LoginComponent },
 { path: '', component: LoginComponent },
-{ path: 'usuarioList', component: UsuarioComponent},
-{ path: 'cadastro' , component: CadastroComponent},
-{ path: 'cadastro/:id', component : CadastroComponent}
+{ path: 'usuarioList', component: UsuarioComponent, canActivate: [GuardGuard]},
+{ path: 'cadastro' , component: CadastroComponent, canActivate: [GuardGuard]},
+{ path: 'cadastro/:id', component : CadastroComponent, canActivate: [GuardGuard]}
 ];
 
 export const routes : ModuleWithProviders<any> = RouterModule.forRoot(appRouters);
